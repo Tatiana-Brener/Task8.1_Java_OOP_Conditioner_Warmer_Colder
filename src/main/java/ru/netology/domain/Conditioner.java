@@ -31,10 +31,10 @@ public class Conditioner {
     }
 
     public void setCurrentTemperature(int currentTemperature) {
-        if (currentTemperature >= maxTemperature)
-            return;
-        if (currentTemperature <= minTemperature)
-            return;
+//        if (currentTemperature > maxTemperature)
+//            return;
+//        if (currentTemperature < minTemperature)
+//            return;
         this.currentTemperature = currentTemperature;
     }
 
@@ -44,7 +44,10 @@ public class Conditioner {
         if (increaseCurrentTemperature <= getMaxTemperature()) {
             return;
         }
-        else increaseCurrentTemperature = getMaxTemperature();
+        if (increaseCurrentTemperature > getMinTemperature()) {
+            return;
+        }
+//        else increaseCurrentTemperature = getMaxTemperature();
         this.currentTemperature = increaseCurrentTemperature;
     }
 
@@ -54,41 +57,13 @@ public class Conditioner {
         if (decreaseCurrentTemperature >= getMinTemperature()) {
             return;
         }
-        else decreaseCurrentTemperature = getMinTemperature();
-        this.currentTemperature = decreaseCurrentTemperature;
+        if (decreaseCurrentTemperature < getMaxTemperature()) {
+            return;
         }
-
+//        else decreaseCurrentTemperature = getMinTemperature();
+        this.currentTemperature = decreaseCurrentTemperature;
     }
-
-
-//        int increaseCurrentTemperature2 = increaseCurrentTemperature;
-//        if (increaseCurrentTemperature2 <= getMaxTemperature()) {
-//            return;
-//        }
-//        this.currentTemperature = increaseCurrentTemperature2;
-
-
-//    public int getIncreaseCurrentTemperature() {
-//        return increaseCurrentTemperature;
-//    }
-//
-//    public void setIncreaseCurrentTemperature(int increaseCurrentTemperature) {
-//        count++;
-//        increaseCurrentTemperature = getCurrentTemperature() + count;
-//        if (increaseCurrentTemperature <= getMaxTemperature()) {
-//            return;
-//        }
-//        this.increaseCurrentTemperature = increaseCurrentTemperature;
-//    }
-//
-//    public int getDecreaseCurrentTemperature() {
-//
-//        return decreaseCurrentTemperature;
-//    }
-//
-//    public void setDecreaseCurrentTemperature(int decreaseCurrentTemperature) {
-//        this.decreaseCurrentTemperature = decreaseCurrentTemperature;
-//    }
+    }
 
 
 
